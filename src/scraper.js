@@ -9,21 +9,20 @@ async function getDailyArticles() {
         const articles = [];
         $("div[data-testid='ImmutableGridSlot']").each((i, element) => {
             const anchorTag = $(element).find("a");
-            const title = anchorTag.find("h3").text().trim(); // Extracts the article title
-            const link = anchorTag.attr("href"); // Extracts the link
-            const fullLink = link.startsWith("http") ? link : `https://theconversation.com${link}`; // Ensures full link
+            const title = anchorTag.find("h3").text().trim(); 
+            const link = anchorTag.attr("href");
+            const fullLink = link.startsWith("http") ? link : `https://theconversation.com${link}`;
 
             if (title && link) {
                 articles.push({ title, link: fullLink });
             }
         });
-
-        // Return the first article of the day
-        return articles.length > 0 ? articles[0] : null;
+        
+        return articles.length > 0 ? articles[articles.length-1] : null;
     } catch (error) {
         console.error("Error scraping articles:", error);
         return null;
     }
 }
 
-getDailyArticles().then((article) => console.log(article));
+module.exports = { getDailyArticles };

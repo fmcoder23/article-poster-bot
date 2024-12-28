@@ -1,5 +1,10 @@
-const { getDailyArticles } = require("./scraper");
+const { Bot } = require("grammy");
+require("dotenv").config();
 
-getDailyArticles().then((article) => {
-    console.log(article);
+const bot = new Bot(process.env.BOT_TOKEN);
+
+bot.on("message", (ctx) => {
+    console.log("Chat ID:", ctx.chat.id);
 });
+
+bot.start();
