@@ -5,6 +5,8 @@ const app = express();
 // Initialize bot
 bot.start();
 
+require('./scheduler')()
+
 // Health check endpoint
 app.get("/", (req, res) => {
     res.send("Daily Article Bot is running!");
