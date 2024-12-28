@@ -15,7 +15,8 @@
     "cheerio": "^1.0.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "grammy": "^1.33.0"
+    "grammy": "^1.33.0",
+    "node-cron": "^3.0.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"

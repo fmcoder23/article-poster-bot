@@ -1,5 +1,7 @@
+const cron = require("node-cron");
 const { postToChannel } = require("./bot");
 const { getDailyArticles } = require("./scraper");
+
 
 const postArticle = async() => {
     cron.schedule("0 9 * * *", async () => {
